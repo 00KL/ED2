@@ -6,13 +6,15 @@
 
 #define FIM -1
 
+//funçao q gera vetor de inteiros
+void* geraVetor(int N);
 
 //função q marca numeros não primos
-int* marca(int*);
+void* marca(void*);
 
 //função q extrai lista de numeros primos
-int* extrai(int*);
+void* extrai(void*);
 
-void printVetor(int*);
+void printVetor(void*);
 
 #endif

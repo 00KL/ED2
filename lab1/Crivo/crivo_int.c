@@ -1,10 +1,19 @@
 #include "crivo.h"
 
-void printVetor(int* naturais){
-    for(int i = 1; naturais[i+1] != FIM; i++){
-        printf("%d ", naturais[i]);
-    }
-    printf("\n");
+//funçao q gera vetor de inteiros
+void* geraVetor(int N){
+    int i;
+    //Criacao da lista de nataruais entre 0 e N e do ponteiro q ira receber
+	//os primos
+	int *naturais = (int*)malloc( (N+1) * sizeof(naturais));
+	for(i = 2; i < (N+1) ; i++){
+		naturais[i] = i;
+	}
+
+	//definindo o fim do vetor
+	naturais[N+1] = -1;
+
+    return naturais;
 }
 
 //marca os multiplos de cada primo
@@ -18,8 +27,8 @@ void multiplos(int* naturais, int primo, int i){
 }
 
 //função q marca numeros não primos
-int* marca(int* naturais){
-    int i, contador;
+void* marca(void* vet){
+    int i, contador, *naturais = (int*)vet;
 
     for(i = 2; naturais[i] != FIM; i++){
 
@@ -42,7 +51,11 @@ int* marca(int* naturais){
 
 
 //função q extrai lista de numeros primos
-int* extrai(int* naturais){
+void* extrai(void* vet){
+    int* naturais = (int*)vet;
+
+    //naturais[1] tem o numero de primos, e o (+ 1) seta -1 na ultima
+    //posição do vetor para facilitar a leitura em printVetor
     int *primos = (int*)malloc( (naturais[1] + 1) *sizeof(primos)), cont = 0, i;
 
     for(i = 2; naturais[i] != FIM; i++){
@@ -56,4 +69,14 @@ int* extrai(int* naturais){
 
     primos[naturais[1]+1] = FIM;
     return primos;
+}
+
+
+void printVetor(void* vet){
+    int* naturais = (int*) vet;
+
+    for(int i = 1; naturais[i+1] != FIM; i++){
+        printf("%d ", naturais[i]);
+    }
+    printf("\n");
 }

@@ -2,27 +2,25 @@
 
 int main(){
 	//Leitura do ultimo natural da lista
-	int N, i;
+	int N;
 	printf("Digite um valor para N:");
 	scanf("%d", &N);
 
 	//Criacao da lista de nataruais entre 0 e N e do ponteiro q ira receber
 	//os primos
-	int *naturais = (int*)malloc( (N+1) * sizeof(naturais)), *primos;
-	for(i = 2; i < (N+1) ; i++){
-		naturais[i] = i;
-	}
-	//definindo o fim do vetor
-	naturais[N+1] = -1;
+	void *naturais = (int *)geraVetor(N);
+	printVetor(naturais);
+	printf("\n\n");
 
 	//marcação de numeros nao primos
 	naturais = marca(naturais);
+	printVetor(naturais);
+	printf("\n\n");
 
 	//criação de lista de numeros primos
-	primos = extrai(naturais);
-
-	//exibe lista de primos extraidos
+	void *primos = extrai(naturais);
 	printVetor(primos);
+	printf("\n\n");
 
 	return 0;
 }
