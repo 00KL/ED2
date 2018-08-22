@@ -19,7 +19,6 @@ int main(){
 
 	//criação de lista de numeros primos
 	void *primos = extrai(naturais);
-	printVetor(primos);
 	printf("\n\n");
 
 	return 0;

@@ -30,7 +30,7 @@ void multiplos(int* naturais, int primo, int i){
 void* marca(void* vet){
     int i, contador, *naturais = (int*)vet;
 
-    for(i = 2; naturais[i] != FIM; i++){
+    for(i = 2; naturais[i+1] != FIM; i++){
 
         if(naturais[i] != 0){
 
@@ -68,6 +68,9 @@ void* extrai(void* vet){
     }
 
     primos[naturais[1]+1] = FIM;
+
+    printVetor(primos);
+
     return primos;
 }
 
@@ -75,7 +78,7 @@ void* extrai(void* vet){
 void printVetor(void* vet){
     int* naturais = (int*) vet;
 
-    for(int i = 1; naturais[i+1] != FIM; i++){
+    for(int i = 0; naturais[i+1] != FIM; i++){
         printf("%d ", naturais[i]);
     }
     printf("\n");
