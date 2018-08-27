@@ -70,3 +70,20 @@ abb* addNo(abb* a, int i){
 void liberaAbb(abb*){
 
 }
+
+void printAbb(abb* a){
+    printf("%d( ", a->valor);
+
+    if(a == NULL){
+        printf("()");
+        return;
+    }else{
+        printf("%d( ", a->valor);
+
+        printAbb(a->esq);
+        printAbb(a->dir);
+
+        printf(")\n\n");
+    }
+
+}

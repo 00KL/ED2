@@ -9,6 +9,8 @@ typedef struct abb {
 
 abb* criaArvore();
 
-abb* addNo(int);
+abb* addNo(abb*, int);
+
+void printAbb(abb*);
 
 void liberaAbb(abb*);
