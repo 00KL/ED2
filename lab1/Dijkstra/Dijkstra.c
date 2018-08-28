@@ -5,7 +5,6 @@ static Pilha* pilha;
 static int i;
 static double numero = 0;
 
-
 void alocaNum(){
     while(entrada[i] != ' '){
         numero = numero*10;
@@ -14,44 +13,49 @@ void alocaNum(){
         i++;
     }
 
+    pilha->Tdouble++;
+
     pilha->pilhaDouble[pilha->Tdouble] = numero;
 
-    printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble] );
+    //printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble] );
     numero = 0;
-    pilha->Tdouble++;
 }
 
 void alocaChar(){
 
+    pilha->Tchar++;
+
     pilha->pilhaChar[pilha->Tchar] = entrada[i];
 
-    printf("%c ", pilha->pilhaChar[pilha->Tchar]);
-    pilha->Tchar++;
+    //printf("%c ", pilha->pilhaChar[pilha->Tchar]);
 
 }
 
 void operacao(){
-    switch (pilha->Tchar) {
-        case '+':
-            pilha->pilhaDouble[pilha->Tdouble - 1] +=  pilha->pilhaDouble[pilha->Tdouble];
-            pilha->Tdouble--;
-            pilha->Tchar--;
 
-        case '-':
-            pilha->pilhaDouble[pilha->Tdouble - 1] -=  pilha->pilhaDouble[pilha->Tdouble];
-            pilha->Tdouble--;
-            pilha->Tchar--;
-
-        case '*':
-            pilha->pilhaDouble[pilha->Tdouble - 1] *=  pilha->pilhaDouble[pilha->Tdouble];
-            pilha->Tdouble--;
-            pilha->Tchar--;
-
-        case '/':
-            pilha->pilhaDouble[pilha->Tdouble - 1] /=  pilha->pilhaDouble[pilha->Tdouble];
-            pilha->Tdouble--;
-            pilha->Tchar--;
+    if(pilha->pilhaChar[pilha->Tchar] == '+'){
+        pilha->pilhaDouble[pilha->Tdouble - 1] +=  pilha->pilhaDouble[pilha->Tdouble];
+        pilha->Tdouble--;
+        //printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble]);
+        pilha->Tchar--;
+    }else if(pilha->pilhaChar[pilha->Tchar] == '-'){
+        pilha->pilhaDouble[pilha->Tdouble - 1] -=  pilha->pilhaDouble[pilha->Tdouble];
+        pilha->Tdouble--;
+        //printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble]);
+        pilha->Tchar--;
+    }else if(pilha->pilhaChar[pilha->Tchar] == '*'){
+        pilha->pilhaDouble[pilha->Tdouble - 1] *=  pilha->pilhaDouble[pilha->Tdouble];
+        pilha->Tdouble--;
+        //printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble]);
+        pilha->Tchar--;
+    }else if(pilha->pilhaChar[pilha->Tchar] == '/'){
+        pilha->pilhaDouble[pilha->Tdouble - 1] /=  pilha->pilhaDouble[pilha->Tdouble];
+        pilha->Tdouble--;
+        //printf("%.0f ", pilha->pilhaDouble[pilha->Tdouble]);
+        pilha->Tchar--;
     }
+
+
 }
 
 
@@ -62,32 +66,36 @@ void extracao(char* e){
 
     //inicia pilha
     pilha = (Pilha*)malloc(sizeof(pilha));
-    pilha->Tdouble = 0;
-    pilha->Tchar = 0;
+    pilha->Tdouble = -1;
+    pilha->Tchar = -1;
 
     for(i = 0; entrada[i] != '\0'; i++){
-        if(entrada[i] == ' '){
-            i++;
 
-            if(entrada[i] != '(' && entrada[i] != ')'){
-
-                if(entrada[i] >= '0' && entrada[i] <= '9' ){
-                    alocaNum();
-                }
-
-                if(entrada[i] != ' '){
-                    alocaChar();
-                }
-
-            }
-
-            if(entrada[i] == ')'){
-                printf("test\n");
-                operacao();
-            }
-
+        if(entrada[i] >= '0' && entrada[i] <= '9' ){
+            alocaNum();
         }
-    }
 
-    printf("%.0f \n\n", pilha->pilhaDouble[0]);
+        if(entrada[i] == '+' || entrada[i] == '-' ||  entrada[i] == '*' || entrada[i] == '/'){
+            alocaChar();
+        }
+
+        if(entrada[i] == ')'){
+            operacao();
+        }
+
+    }
+    //
+    // for(int j = 0; j <= pilha->Tchar; j++ ){
+    //     printf("%c ", pilha->pilhaChar[j]);
+    // }
+    //
+    // printf("\n\n");
+    //
+    // for(int j = 0; j <= pilha->Tdouble; j++ ){
+    //     printf("%.0f ", pilha->pilhaDouble[j]);
+    // }
+
+    printf("%.0f\n\n", pilha->pilhaDouble[0]);
+
+    //printf("%.0f \n\n", pilha->pilhaDouble[0]);
 }
