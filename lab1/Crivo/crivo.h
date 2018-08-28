@@ -13,7 +13,7 @@ void* geraVetor(int N);
 void* marca(void*);
 
 //função q extrai lista de numeros primos
-void* extrai(void*);
+//void* extrai(void*);
 
 void printVetor(void*);
 

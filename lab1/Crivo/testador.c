@@ -9,17 +9,17 @@ int main(){
 	//Criacao da lista de nataruais entre 0 e N e do ponteiro q ira receber
 	//os primos
 	void *naturais = (int *)geraVetor(N);
-	printVetor(naturais);
+	//printVetor(naturais);
 	printf("\n\n");
 
 	//marcação de numeros nao primos
 	naturais = marca(naturais);
-	printVetor(naturais);
+	//printVetor(naturais);
 	printf("\n\n");
 
 	//criação de lista de numeros primos
-	void *primos = extrai(naturais);
-	printf("\n\n");
+	//void *primos = extrai(naturais);
+	//printf("\n\n");
 
 	return 0;
 }
