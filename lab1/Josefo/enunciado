@@ -1,0 +1,121 @@
+6.  Com M = 10, avalie o desempenho das suas implementacoes em termo de tempo de
+execucao para N = 10 i , i = 3 , . . . , 9.
+
+Running time (in sec.) vs. array type
+
+N	      10^3	   10^4	   10^5	   10^6	   10^7	   10^8	   10^9	   10^10
+Lista
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:9
+Regra de votação:5
+
+real    0m3.620s
+user    0m0.000s
+sys     0m0.016s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000
+Regra de votação:10
+
+real    0m8.301s
+user    0m0.000s
+sys     0m0.016s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:10000
+Regra de votação:10
+
+real    0m5.543s
+user    0m0.000s
+sys     0m0.016s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:100000
+Regra de votação:10
+
+real    0m8.022s
+user    0m0.000s
+sys     0m0.031s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000000
+Regra de votação:10
+
+real    0m16.318s
+user    0m0.203s
+sys     0m0.078s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:10000000
+Regra de votação:10
+
+real    0m13.055s
+user    0m1.953s
+sys     0m0.875s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:100000000
+Regra de votação:10
+
+real    0m38.970s
+user    0m21.422s
+sys     0m8.078s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000000000
+Regra de votação:10
+Segmentation fault (core dumped)
+
+real    2m23.096s
+user    0m25.109s
+sys     1m8.047s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:10000000000
+Regra de votação:10
+Segmentation fault (core dumped)
+
+real    1m57.092s
+user    0m23.969s
+sys     1m0.281s
+
+
+Vetor
+
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000
+Regra de votação:10
+
+real    0m4.827s
+user    0m0.000s
+sys     0m0.016s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:10000
+Regra de votação:10
+
+real    0m4.406s
+user    0m0.000s
+sys     0m0.000s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:100000
+Regra de votação:10
+
+real    0m6.160s
+user    0m0.063s
+sys     0m0.000s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000000
+Regra de votação:10
+
+real    0m9.074s
+user    0m0.484s
+sys     0m0.016s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:10000000
+Regra de votação:10
+
+real    0m29.654s
+user    0m5.609s
+sys     0m0.000s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:100000000
+Regra de votação:10
+
+real    1m10.407s
+user    1m2.547s
+sys     0m0.281s
+root@regata:~/Josefo# time ./exe
+Tamanho do circulo:1000000000
+Regra de votação:10

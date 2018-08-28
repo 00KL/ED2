@@ -2,6 +2,26 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+// 4. E  poss ́ıvel  prover  uma  variante  da  estrutura  que   ́e  mais  r ́apida  e/ou  consome  menos
+// mem ́oria?  Tente fazer pelo menos uma variante
+
+// 3.  Qual  ́e a estrutura de dados mais adequada para se usar na solu ̧c ̃ao?  Implemente e teste
+// essa estrutura. Vetores se mostraram mais eficientes
+
+
+// root@regata:~/Josefo# time ./exe
+// Tamanho do circulo:9
+// Regra de votação:5
+// 5 1 7 4 3 6 9 2
+// 1
+//
+//
+// real    0m1.850s
+// user    0m0.000s
+// sys     0m0.016s
+
+
+
 //criação de 3 variaveis
 //static Circulo* C, *aux, *prim;
 static int N, M;
@@ -22,7 +42,7 @@ void iniciaCirculo(int i, int j){
 
     //For para preencher o vetor
     //N atriuições
-    for(i = 0; i < N; i++){
+    for(i = 0; i < N+1; i++){
         vet[i] = 1;
     }
 }
@@ -30,7 +50,7 @@ void iniciaCirculo(int i, int j){
 void votacao(){
 
     //1 criação de variavel
-    int i = 0, j = -1, k = 0;
+    int i = 0, j = 0, k = 0;
 
     //dessa forma a posição 0 sera ignirada
     //vet[0] = 0;
@@ -46,10 +66,10 @@ void votacao(){
 
                 //printf("%d",j );
                 //o quinto eliminavel deve ser eliminado
-                if(j == M){
+                if(j == M ){
                     //exit(1);
                     //printando eliminados
-                    printf("%d ", i);
+                    //printf("%d ", i);
                     //eliminando pessoa
                     vet[i] = 0;
                     //contando quantos foram eliminados
@@ -61,14 +81,11 @@ void votacao(){
         }
     }
 
-    printf("\n" );
+    //printf("\n" );
 
     //busca o eleito
-    for(i = 1; i < N; i++){
-        if(vet[i] == 1){
-            printf("%d\n\n", i);
-        }
-    }
+    // for(i = 1; vet[i] != 1; i++);
+    // printf("%d\n\n", vet[i]);
 
 
 }

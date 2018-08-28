@@ -1,5 +1,20 @@
 #include "josefo.h"
 
+// 2.  Crie  um  programa  cliente  que  recebe  como  parˆametros  os  valores
+// N e M ,  inicializa  o c ́ırculo e exibe a sequˆencia de pessoas eliminadas no terminal.
+
+
+
+// root@regata:~/Josefo# time ./exe
+// Tamanho do circulo:9
+// Regra de votação:5
+// 5 1 7 4 3 6 9 2
+//
+// 8
+//
+// real    0m2.166s
+// user    0m0.000s
+// sys     0m0.016s
 
 struct circulo{
     int valor;
@@ -83,26 +98,14 @@ void votacao(){
         C = C->prox;
 
         //printando em sequencias pessoas eliminadas
-        printf("%d ", aux->valor);
+        //printf("%d ", aux->valor);
 
         //liberando memoria referente a pessoa eliminada
         free(aux);
 
     }
 
-    printf("\n\n%d \n", C->valor);
+    //printf("\n\n%d \n", C->valor);
 
     free(C);
-}
-
-void printCirculo(){
-    C = prim;
-
-    do{
-        printf("%d ", C->valor);
-        C = C->prox;
-
-    }while(C->valor != prim->valor);
-
-    printf("\n\n");
 }
