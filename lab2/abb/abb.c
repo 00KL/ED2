@@ -7,10 +7,12 @@ abb* criaArvore(){
 abb* addNo(abb* a, int i){
     //caso a arvore esteja vazia
     if(a == NULL){
-        a = (abb*)malloc(sizeof(a));
+        a = (abb*)malloc(sizeof(abb));
         a->valor = i;
         a->esq = NULL;
         a->dir = NULL;
+
+        return a;
     }
 
     else {
@@ -26,10 +28,10 @@ abb* addNo(abb* a, int i){
             if(a->valor > i){
                 //caso n haja nada a esquerda
                 if(a->esq == NULL){
-                    abb* novo = (abb*)malloc(sizeof(novo));
+                    abb* novo = (abb*)malloc(sizeof(abb));
                     novo->valor = i;
                     novo->esq = NULL;
-                    novo->dir =NULL;
+                    novo->dir = NULL;
 
                     a->esq = novo;
                     return a;
@@ -37,7 +39,8 @@ abb* addNo(abb* a, int i){
 
                 //caso haja
                 else{
-                    return addNo(a->esq, i);
+                    a->esq = addNo(a->esq, i);
+                    return a;
 
                 }
 
@@ -46,17 +49,18 @@ abb* addNo(abb* a, int i){
 
             else{
                 if(a->dir == NULL){
-                    abb* novo = (abb*)malloc(sizeof(novo));
+                    abb* novo = (abb*)malloc(sizeof(abb));
                     novo->valor = i;
                     novo->esq = NULL;
-                    novo->dir =NULL;
+                    novo->dir = NULL;
 
                     a->dir = novo;
                     return a;
                 }
 
                 else{
-                    return addNo(a->dir, i);
+                    a->dir = addNo(a->dir, i);
+                    return a;
                 }
 
             }
@@ -65,25 +69,38 @@ abb* addNo(abb* a, int i){
 
     }
 
-}
-
-void liberaAbb(abb*){
+    return NULL;
 
 }
+
+
+
+void liberaAbb(abb* a){
+    if(a->esq != NULL){
+        liberaAbb(a->esq);
+    }
+
+    if(a->dir != NULL){
+        liberaAbb(a->dir);
+    }
+
+    free(a);
+}
+
+
 
 void printAbb(abb* a){
-    printf("%d( ", a->valor);
 
     if(a == NULL){
-        printf("()");
-        return;
+        printf("()  ");
+
     }else{
-        printf("%d( ", a->valor);
+        printf("%d ( ", a->valor);
 
         printAbb(a->esq);
         printAbb(a->dir);
 
-        printf(")\n\n");
+        printf(")   ");
     }
 
 }

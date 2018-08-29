@@ -3,8 +3,8 @@
 
 typedef struct abb {
     int valor;
-    abb* esq;
-    abb* dir;
+    struct abb* esq;
+    struct abb* dir;
 }abb;
 
 abb* criaArvore();

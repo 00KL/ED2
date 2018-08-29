@@ -11,6 +11,9 @@ int main(){
     a = addNo(a, 9);
 
     printAbb(a);
+    printf("\n\n");
+
+    liberaAbb(a);
 
     return 0;
 }
