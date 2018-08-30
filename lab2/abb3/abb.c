@@ -146,6 +146,23 @@ void pos_order(abb* a){
     }
 
 }
+void pre_pilha(abb* a){
+    pilha* p = criapilhaVazia();
+    p->info = a;
+
+    if(a == NULL){
+        printf("-1\n");
+    }
+    else{
+        printAbb(p->info);
+
+        
+
+        // printf("")
+    }
+}
+void in_pilha(abb* a);
+void pos_pilha(abb* a);
 
 
 int alturaAbb(abb* a){
@@ -165,4 +182,10 @@ int alturaAbb(abb* a){
     }
 
     return -1;
+}
+
+void printAbb(void* v){
+    abb* a = (abb*) v;
+
+    printf("%d ",a->valor );
 }
