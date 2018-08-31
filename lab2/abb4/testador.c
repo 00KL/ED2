@@ -19,12 +19,11 @@ int main(){
 
     a = radomAbb(a, N);
     printf("\n\n");
-    pre_order(a);
-    printf("\n\n");
-    in_order(a);
-    printf("\n\n");
-    pos_order(a);
-    printf("\n\n");
+
+    pre_pilha(a);
+    in_pilha(a);
+    //pos_pilha(a);
+
 
     //printf("%d\n", alturaAbb(a) );
 

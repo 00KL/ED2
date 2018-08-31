@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdlib.h>
-#include "pilha.c"
+#include "pilha.h"
 
 
 typedef struct abb {

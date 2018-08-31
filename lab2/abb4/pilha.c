@@ -1,14 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdlib.h>
 #include "pilha.h"
 
-pilha* criapilhaVazia(){
-    pilha* x = (pilha*)malloc(sizeof(x));
-    x->info = NULL;
-    x->prox = NULL;
 
+
+sentinela* criapilhaVazia(){
+    sentinela* x = (sentinela*)malloc(sizeof(x));
+    x->topo = NULL;
     return x;
 }
 
-void push(void* x, pilha* y){
+void push(void* x, sentinela* y){
     pilha* m = (pilha*)malloc(sizeof(m));
 
     m->info = x;
@@ -17,7 +21,7 @@ void push(void* x, pilha* y){
     y->topo = m;
 }
 
-void* pop(pilha* y){
+void* pop(sentinela* y){
     if(ispilhaVazia(y)){
         return NULL;
     }
@@ -27,6 +31,6 @@ void* pop(pilha* y){
     return x;
 }
 
-int ispilhaVazia(pilha* x){
+int ispilhaVazia(sentinela* x){
     return x->topo == NULL;
 }

@@ -146,23 +146,89 @@ void pos_order(abb* a){
     }
 
 }
+
 void pre_pilha(abb* a){
-    pilha* p = criapilhaVazia();
-    p->info = a;
+    sentinela* s = criapilhaVazia();
+    push(a, s);
+
+    abb* aux;
 
     if(a == NULL){
         printf("-1\n");
+        return;
     }
-    else{
-        printAbb(p->info);
 
-        
+    while(!ispilhaVazia(s)){
 
-        // printf("")
+        aux = (abb*) pop(s);
+        printf("(%d) ", aux->valor);
+
+        if(aux->dir != NULL){
+            push(aux->dir, s);
+
+        }
+
+        if(aux->esq != NULL){
+            push(aux->esq, s);
+        }
     }
+
+    printf("\n\n");
 }
-void in_pilha(abb* a);
-void pos_pilha(abb* a);
+
+
+void in_pilha(abb* a){
+    sentinela* s = criapilhaVazia();
+    //push(a, s);
+
+    abb* aux = a;
+
+    if(a == NULL){
+        printf("-1\n");
+        return;
+    }
+
+    while( (!ispilhaVazia(s)) || aux != NULL){
+        if(aux != NULL){
+            push(aux,s);
+            aux = aux->esq;
+        }else{
+            aux = (abb*) pop(s);
+            printf("%d ", aux->valor );
+            aux = aux->dir;
+        }
+
+    }
+    printf("\n\n");
+}
+
+
+
+
+void pos_pilha(abb* a){
+    sentinela* s = criapilhaVazia();
+    //push(a, s);
+
+    abb* aux = a;
+
+    if(a == NULL){
+        printf("-1\n");
+        return;
+    }
+
+    while( (!ispilhaVazia(s)) || aux != NULL){
+        if(aux != NULL){
+            push(aux,s);
+            aux = aux->esq;
+        }else{
+            aux = (abb*) pop(s);
+            //printf("%d ", aux->valor );
+            aux = aux->dir;
+        }
+
+    }
+    printf("\n\n");
+}
 
 
 int alturaAbb(abb* a){
