@@ -12,20 +12,13 @@ int main(){
     abb* a = criaArvore();
     int N = 10;
 
-    //printf("%d\n\n", N);
-
-    //printf("Digite o numero de nós da arvore:");
-    //scanf("%d", &N);
-
     a = radomAbb(a, N);
     printf("\n\n");
 
     pre_pilha(a);
     in_pilha(a);
-    //pos_pilha(a);
+    pos_pilha(a);
 
-
-    //printf("%d\n", alturaAbb(a) );
 
     liberaAbb(a);
 

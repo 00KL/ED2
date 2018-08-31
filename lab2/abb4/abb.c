@@ -104,49 +104,6 @@ void liberaAbb(abb* a){
 }
 
 
-
-void percorre(abb* a, void (*callback)(abb*)){
-
-    if(a == NULL){
-        //printf("()  ");
-
-    }else{
-        callback(a->esq);
-        printf("%d ", a->valor);
-        callback(a->dir);
-
-        //printf(")   ");
-    }
-
-}
-
-void pre_order(abb* a){
-    if(a != NULL){
-        printf("%d ", a->valor);
-        pre_order(a->esq);
-        pre_order(a->dir);
-    }
-
-}
-
-void in_order(abb* a){
-    if(a != NULL){
-        in_order(a->esq);
-        printf("%d ", a->valor);
-        in_order(a->dir);
-    }
-
-}
-
-void pos_order(abb* a){
-    if(a != NULL){
-        pos_order(a->esq);
-        pos_order(a->dir);
-        printf("%d ", a->valor);
-    }
-
-}
-
 void pre_pilha(abb* a){
     sentinela* s = criapilhaVazia();
     push(a, s);
@@ -161,7 +118,7 @@ void pre_pilha(abb* a){
     while(!ispilhaVazia(s)){
 
         aux = (abb*) pop(s);
-        printf("(%d) ", aux->valor);
+        printf("%d ", aux->valor);
 
         if(aux->dir != NULL){
             push(aux->dir, s);
@@ -210,48 +167,30 @@ void pos_pilha(abb* a){
     //push(a, s);
 
     abb* aux = a;
+    abb* lastVisited = NULL;
+    abb* atual;
 
     if(a == NULL){
         printf("-1\n");
         return;
     }
 
-    while( (!ispilhaVazia(s)) || aux != NULL){
+    while( !ispilhaVazia(s) || aux != NULL){
         if(aux != NULL){
             push(aux,s);
             aux = aux->esq;
         }else{
-            aux = (abb*) pop(s);
-            //printf("%d ", aux->valor );
-            aux = aux->dir;
+            atual = (abb*) pop(s);
+            push(atual, s);
+
+            if(atual->dir != NULL && atual->dir != lastVisited){
+                aux = atual->dir;
+            }else{
+                printf("%d ", atual->valor);
+                lastVisited = (abb*)pop(s);
+            }
         }
 
     }
     printf("\n\n");
-}
-
-
-int alturaAbb(abb* a){
-
-    if(a == NULL){
-        return -1;
-    }
-    else{
-        int esq = alturaAbb(a->esq);
-        int dir = alturaAbb(a->dir);
-
-        if(esq < dir){
-            return dir + 1;
-        } else {
-            return esq + 1;
-        }
-    }
-
-    return -1;
-}
-
-void printAbb(void* v){
-    abb* a = (abb*) v;
-
-    printf("%d ",a->valor );
 }
