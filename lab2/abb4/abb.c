@@ -160,6 +160,14 @@ void in_pilha(abb* a){
 }
 
 
+void pos_order(abb* a){
+    if(a != NULL){
+        pos_order(a->esq);
+        pos_order(a->dir);
+        printf("%d ", a->valor);
+    }
+
+}
 
 
 void pos_pilha(abb* a){

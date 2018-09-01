@@ -15,8 +15,11 @@ int main(){
     a = radomAbb(a, N);
     printf("\n\n");
 
-    pre_pilha(a);
-    in_pilha(a);
+    //pre_pilha(a);
+    //in_pilha(a);
+
+    pos_order(a);
+    printf("\n");
     pos_pilha(a);
 
 
