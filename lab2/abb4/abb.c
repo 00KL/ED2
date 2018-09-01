@@ -81,7 +81,7 @@ abb* radomAbb(abb* a, int N){
     int i, r;
 
     for(i = 0; i <= N; i++){
-        r = rand()%20;
+        r = rand();
         printf("%d ", r);
         a = addNo(a, r);
     }

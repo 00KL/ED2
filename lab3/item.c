@@ -15,7 +15,7 @@ int* preencheVetor(FILE *arq, int* numero, int N){
 }
 
 void printVetor(int* vet, int N){
-    for(int i; i < N; i++){
+    for(int i = 0; i < N; i++){
         printf("%d ", vet[i] );
     }
 

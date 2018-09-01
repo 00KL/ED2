@@ -1,19 +1,21 @@
-#include "item.h"
+#include "sort.h"
 
-int main(int argc, char* argv[]){
+Item main(int argc, char* argv[]){
     FILE *arq = fopen(argv[2], "r");
-    int N = atoi(argv[1]);
-    int *numero =  (int*)malloc( N * sizeof(int));
+    Item N = atoi(argv[1]);
+    Item *numero =  (Item*)malloc( N * sizeof(Item));
 
     if(arq == NULL){
         printf("ERRO\n\n");
+        exit(1);
     }
     else{
         numero = preencheVetor(arq, numero, N);
     }
 
     printVetor(numero, N);
-    
+    sort(numero, 0, N);
+    printVetor(numero, N);
 
     free(numero);
     fclose(arq);
