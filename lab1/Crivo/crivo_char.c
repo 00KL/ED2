@@ -34,10 +34,10 @@ void* marca(void* vet){
     //O ultimo valor, mesmo primo, deve ser descosiderado. pois estamos interessados
     //nos valores primos entre 1 e o ultimo valor. por isso o indicie deve
     //checar se o proximo valor é '1'(condição de parada estabelicida)
-    for(i = 2; naturais[i+1] != '1'; i++){
+    for(i = 2; naturais[i] != '1'; i++){
 
         if(naturais[i] != 'X'){
-
+            printf("%d ", i);
             //assim é possivel saber quantos primos há
             contador ++;
             multiplos(naturais, i, i);
@@ -45,12 +45,7 @@ void* marca(void* vet){
 
     }
 
-    //printf("test\n\n");
-
-    //o vetor naturais se inicia na posição 2, como previamente estabelecido
-    //no testador. Logo os primeiros dois elementos do vetor estão vazios.
-    //o contador de primos será posto na posião 1 do vetor
-    naturais[1] = contador;
+    printf("\n\n");
 
     return naturais;
 }
@@ -58,7 +53,7 @@ void* marca(void* vet){
 void printVetorInt(void* vet){
     int* naturais = (int*) vet;
 
-    for(int i = 0; naturais[i] != FIM; i++){
+    for(int i = 0; naturais[i] != -1; i++){
         printf("%d ", naturais[i]);
     }
     printf("\n");
@@ -84,7 +79,7 @@ void* extrai(void* vet){
 
     //printf("\n\n%d %d\n\n", cont, (int) naturais[1]);
 
-    primos[cont] = FIM;
+    primos[cont] = -1;
     printVetorInt(primos);
     return primos;
 }

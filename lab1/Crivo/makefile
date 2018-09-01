@@ -1,12 +1,16 @@
-all: testador clean
-
-testador: testador.o crivo_int.o
+int: testador.o crivo_int.o
 	gcc -o exe testador.o crivo_int.o && ./exe
 
-crivo_int.o: crivo_int.c
+char: testador.o crivo_char.o
+	gcc -o exe testador.o crivo_char.o && ./exe
+
+crivo_int.o:
 	gcc -c crivo_int.c
 
-testador.o: testador.c
+crivo_char.o:
+	gcc -c crivo_char.c
+
+testador.o:
 	gcc -c testador.c
 
 clean:
