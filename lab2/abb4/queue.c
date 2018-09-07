@@ -4,7 +4,12 @@ queue* queueEmpty(){
     queue* q = (queue*)malloc(sizeof(queue));
     q->first = NULL;
     q->last = NULL;
+    q->size = 0;
     return q;
+}
+
+int queueSize(queue* q){
+    return q->size;
 }
 
 void enqueue(queue* q, void* i){
@@ -19,6 +24,7 @@ void enqueue(queue* q, void* i){
         q->first = add;
 
     q->last = add;
+    q->size++;
 }
 
 void* dequeue(queue* q){
@@ -34,6 +40,8 @@ void* dequeue(queue* q){
         void* retorno = n->valor;
 
         free(n);
+
+        q->size--;
         return retorno;
     }
 
@@ -44,6 +52,8 @@ void* dequeue(queue* q){
         void* retorno = n->valor;
 
         free(n);
+
+        q->size--;
         return retorno;
     }
 

@@ -40,4 +40,7 @@ void pre_pilha(abb*);
 void in_pilha(abb*);
 void pos_pilha(abb*);
 
+//Lever
+void levelOrder(abb*);
+
 #endif

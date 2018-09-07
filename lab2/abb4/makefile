@@ -1,7 +1,7 @@
 all: exe clean
 
 exe: abb.o testador.o pilha.o
-	gcc -o exe abb.o testador.o pilha.o && ./exe
+	gcc -o exe abb.o testador.o pilha.o queue.c && ./exe
 
 abb.o:
 	gcc -c abb.c

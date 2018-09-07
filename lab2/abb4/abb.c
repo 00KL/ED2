@@ -207,9 +207,8 @@ void pos_pilha(abb* a){
 void levelOrder(abb* a){
     queue* q = queueEmpty();
     enqueue(q, a);
-    abb* atual = a;
 
-    while(atual != NULL){
+    while(queueSize(q) > 0){
         a = (abb*)dequeue(q);
 
         printf("%d ", a->valor);

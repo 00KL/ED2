@@ -12,15 +12,27 @@ int main(){
     abb* a = criaArvore();
     int N = 10;
 
-    a = radomAbb(a, N);
+    addNo(a, 6);
+    addNo(a, 2);
+    addNo(a, 7);
+    addNo(a, 1);
+    addNo(a, 4);
+    addNo(a, 9);
+    addNo(a, 3);
+    addNo(a, 5);
+    addNo(a, 8);
+
+    //a = radomAbb(a, N);
+
+    levelOrder(a);
     printf("\n\n");
 
     //pre_pilha(a);
     //in_pilha(a);
 
-    pos_order(a);
-    printf("\n");
-    pos_pilha(a);
+    //pos_order(a);
+    //printf("\n");
+    //pos_pilha(a);
 
 
     liberaAbb(a);
