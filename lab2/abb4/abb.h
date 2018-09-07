@@ -6,6 +6,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "pilha.h"
+#include "queue.h"
 
 
 typedef struct abb {

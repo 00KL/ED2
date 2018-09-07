@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct node{
-    int valor;
+    void* valor;
     struct node* prox;
 } node;
 
@@ -13,8 +13,8 @@ typedef struct queue{
 
 queue* queueEmpty();
 
-void enqueue(queue*, int);
+void enqueue(queue*, void*);
 
-queue* dequeue(queue*);
+void* dequeue(queue*);
 
-void queueSearch(queue*);
+void queueSearch(queue*, void* i);

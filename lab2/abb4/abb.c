@@ -202,3 +202,26 @@ void pos_pilha(abb* a){
     }
     printf("\n\n");
 }
+
+
+void levelOrder(abb* a){
+    queue* q = queueEmpty();
+    enqueue(q, a);
+    abb* atual = a;
+
+    while(atual != NULL){
+        a = (abb*)dequeue(q);
+
+        printf("%d ", a->valor);
+
+        if(a->esq != NULL){
+            enqueue(q, a->esq);
+        }
+
+        if(a->dir != NULL){
+            enqueue(q, a->dir);
+        }
+    }
+
+    free(q);
+}
