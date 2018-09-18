@@ -4,35 +4,30 @@
 // Escreva uma função que recebe como entrada o caminhamento em pre-order e in-order
 // de uma árvore binária e exibe em stdout o caminhamento em post-order da árvore dada.
 
-void print_post_order(int *pre, int *in, int last, int init) {
+void print_post_order(int *pre, int *in, int N) {
     // Implemente essa funcao para resolver a questao 2.
+    static int root = 0;
+    int root_atual = pre[root++];
+    int prox_tree;
 
-    if(last != 0){
-        int i;
-        for(int j = init; j < last; j++){
-            for(i = init; i < last; i++){
-                if(pre[j] == in[i]){
-                    break;
-                }
-            }
+    //Condições de parada da recursão
+    if(N == 0) return;//caso o tamanho do vetor in seja 0
+                      //não temos mais o que percorrer
+    if(N == 1){
+        printf("%d ", in[0]);//caso haja apenas um valor em in
+        return;              //devemosprintar tal valor e fina-
+    }                        //lizar o programa
 
-            if(pre[j] == in[i]){
-                break;
-            }
-        }
+    //encontra raiz em in
+    for(prox_tree = 0; in[prox_tree] != root_atual; prox_tree++);
 
+    //arvore da esquerda
+    print_post_order(pre, in, prox_tree);
 
-        print_post_order(pre, in, i-1, init);
-        if(last != i+1){
-            print_post_order(pre, in, last, i+1);
-        }
-        //
+    //arvore da direita
+    print_post_order(pre, in+prox_tree+1, N-prox_tree-1);
 
-        printf("%d ", in[i]);
-    }
-    else{
-        printf("%d ", in[0]);
-    }
+    printf("%d ", root_atual);
 
 }
 
@@ -50,7 +45,7 @@ int main() {
     }
 
     // Calcula e exibe a saida.
-    print_post_order(pre, in, N, 0);
+    print_post_order(pre, in, N);
     printf("\n");
     free(pre);
     free(in);
