@@ -26,3 +26,21 @@ void sort(Item* vet, Item lo, Item hi){
     }
 
 }
+
+void insertion(int* vet, int hi){
+    int troca, atual, anterior, realoca;
+
+    for(atual = 0; atual < hi; atual++){
+        for(anterior = 0; anterior < atual; anterior++){
+            if(vet[atual] < vet[anterior]){
+                realoca = vet[atual];
+
+                for(troca = atual; troca > anterior; troca--){
+                    vet[troca] = vet[troca-1];
+                }
+
+                vet[anterior] = realoca;
+            }
+        }
+    }
+}

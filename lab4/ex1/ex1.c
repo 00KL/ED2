@@ -40,9 +40,52 @@ int calc(void) {
     return stack[i-1];
 }
 
+// Crie um programa que implementa uma calculadora p´os-fixada com as opera¸c˜oes de soma
+// e multiplica¸c˜ao. O seu programa deve ler a express˜ao a ser calculada de stdin e imprimir
+// o resultado em stdout. A express˜ao de entrada nunca tem mais de 50 operandos. Utilize
+// a estrutura de dados auxiliar que achar mais adequada para implementar a calculadora.
+int calc2(){
+    char entrada;
+    int numeros[50], atual, cont = 0;
+
+    entrada = getc(stdin);
+    while(entrada != EOF){
+        if(entrada >= '0' && entrada <= '9'){
+            atual = entrada - 48;
+            entrada = getc(stdin);
+
+            while(entrada != ' '){
+                atual = (atual*10) + (entrada - 48);
+                entrada = getc(stdin);
+            }
+
+            numeros[cont] = atual;
+            printf("%d ", numeros[cont]);
+            cont++;
+        }
+        else{
+            if(entrada == '+'){
+                numeros[cont] = numeros[cont] + numeros[cont-1];
+                printf("(+)%d ", numeros[cont]);
+                cont--;
+            }
+
+            else if(entrada == '*'){
+                numeros[cont] = numeros[cont] * numeros[cont-1];
+                printf("(*)%d ", numeros[cont]);
+                cont--;
+            }
+
+            entrada = getc(stdin);
+        }
+    }
+
+    return numeros[0];
+}
+
 int main() {
     // Le a entrada e calcula e retorna o resultado.
-    int res = calc();
+    int res = calc2();
     // Exibe a saida.
     printf("%d\n", res);
 }

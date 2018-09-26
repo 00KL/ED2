@@ -50,3 +50,47 @@ int main() {
     free(pre);
     free(in);
 }
+
+
+
+
+
+
+
+int calc2(){
+    char entrada;
+    int numeros[50], atual, cont = 0;
+
+    entrada = getc(stdin);
+    while(entrada != EOF){
+        if(entrada => '0' && entrada <= '9'){
+            atual = entrada - 48;
+            entrada = getc(stdin);
+
+            while(entrada != ' '){
+                atual = (atual*10) + (entrada - 48);
+                entrada = getc(stdin);
+            }
+
+            numeros[cont] = atual;
+            cont++;
+        }
+        else{
+            if(entrada == '+'){
+                numeros[cont] = numeros[cont] + numeros[cont-1];
+                cont--;
+            }
+
+            else if(entrada == '*'){
+                numeros[cont] = numeros[cont] * numeros[cont-1];
+                cont--;
+            }
+
+            else{
+                entrada = getc(stdin);
+            }
+        }
+    }
+
+    return numeros[0];
+}
