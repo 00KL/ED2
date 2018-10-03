@@ -1,4 +1,4 @@
-#include "sort.h"
+#include "../sort.h"
 void merge(Item* a, Item* aux, int mid, int lo, int hi){
     for(int k = lo; k <= hi; k++) aux[k] = a[k]; //copia array
 
@@ -18,7 +18,7 @@ void merge_sort(Item* a, Item* aux, int lo, int hi){
 
     merge_sort(a, aux, lo, mid);
     merge_sort(a, aux, mid+1, hi);
-    merge(a, aux, lo, mid, hi);
+    merge(a, aux, mid, lo, hi);
 
 }
 

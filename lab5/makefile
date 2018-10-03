@@ -1,37 +1,40 @@
 #chamada para execução de todos os .o necessarios para a
 #geração de cada executavel
 
-selection: testador.o item.o selection.o
-	gcc -o exe testador.o item.o selection.o
+merge: testador.o item.o merge.o
+	gcc -o exe testador.o item.o merge.o
 
-insertion: testador.o item.o insertion.o
-	gcc -o exe testador.o item.o insertion.o
+cutOff: testador.o item.o cutOff.o insertion.o
+	gcc -o exe testador.o item.o cutOff.o insertion.o
 
-bubble: testador.o item.o bubble.o
-	gcc -o exe testador.o item.o bubble.o
+mergeSkip: testador.o item.o mergeSkip.o
+	gcc -o exe testador.o item.o mergeSkip.o
 
-shaker: testador.o item.o shaker.o
-	gcc -o exe testador.o item.o shaker.o
+cutOffSkip: testador.o item.o cutOffSkip.o insertion.o
+	gcc -o exe testador.o item.o cutOffSkip.o insertion.o
 
 #criação dos .o
+merge.o:
+	gcc -c sorts/merge.c
+
+cutOff.o:
+	gcc -c sorts/cutOff.c
+
+mergeSkip.o:
+	gcc -c sorts/mergeSkip.c
+
+cutOffSkip.o:
+	gcc -c sorts/cutOffSkip.c
+
+#Auxiliares
+insertion.o:
+	gcc -c sorts/insertion.c
 
 testador.o:
 	gcc -c testador.c
 
 item.o:
 	gcc -c item.c
-
-selection.o:
-	gcc -c sorts/selection.c
-
-insertion.o:
-	gcc -c sorts/insertion.c
-
-bubble.o:
-	gcc -c sorts/bubble.c
-
-shaker.o:
-	gcc -c sorts/shaker.c
 
 #limpeza dos .o
 
