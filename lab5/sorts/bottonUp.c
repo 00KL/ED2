@@ -16,13 +16,18 @@ void merge(Item* a, Item* aux, int mid, int lo, int hi){
 }
 
 void sort(Item *a, int lo, int hi) {
-    int N = (hi - lo) + 1;
-    int y = N - 1;
+    int N = (hi - lo) + 1; //limitador do primeiro for, pra ele percorrer ate
+                           // < N, logo todas as posições delimitadas entre
+                           // lo e hi
+    int y = N - 1;//sera a quantidade de elementos q devem ser analizados no vetor
+
     Item *aux = malloc(N * sizeof(Item));
-    for (int sz = 1; sz < N; sz = SZ2) {
+    for (int sz = 1; sz < N; sz = SZ2) {//sz incia em 1 , é limitado pela ultima
+                                        //posição N do vetor
         for (int lo = 0; lo < N-sz; lo += SZ2) {
             int x = lo + SZ2 - 1;
-            merge(a, aux, lo, lo+sz-1, MIN(x,y));
+            //merge(a, aux, lo, lo+sz-1, MIN(x,y));
+            printf("lo %d; lo+sz-1 %d; MIN(x,y) %d", lo, (lo+sz-1), MIN(x,y));
         }
     }
     free(aux);
