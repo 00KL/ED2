@@ -13,7 +13,8 @@ mergeSkip: testador.o item.o mergeSkip.o
 cutOffSkip: testador.o item.o cutOffSkip.o insertion.o
 	gcc -o exe testador.o item.o cutOffSkip.o insertion.o
 
-bottom-up: testador.o item.o bottomU
+bottonUp: testador.o item.o bottonUp.o
+	gcc -o exe testador.o item.o bottonUp.o
 
 #criação dos .o
 merge.o:
@@ -27,6 +28,9 @@ mergeSkip.o:
 
 cutOffSkip.o:
 	gcc -c sorts/cutOffSkip.c
+
+bottonUp.o:
+	gcc -c sorts/bottonUp.c
 
 #Auxiliares
 insertion.o:

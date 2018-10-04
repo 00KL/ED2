@@ -22,12 +22,12 @@ void sort(Item *a, int lo, int hi) {
     int y = N - 1;//sera a quantidade de elementos q devem ser analizados no vetor
 
     Item *aux = malloc(N * sizeof(Item));
-    for (int sz = 1; sz < N; sz = SZ2) {//sz incia em 1 , é limitado pela ultima
-                                        //posição N do vetor
-        for (int lo = 0; lo < N-sz; lo += SZ2) {
+    for (int sz = 1; sz < N; sz = SZ2) {
+
+        for (int lo = 0; lo < N-sz; lo += 2*sz) {
             int x = lo + SZ2 - 1;
             //merge(a, aux, lo, lo+sz-1, MIN(x,y));
-            printf("lo %d; lo+sz-1 %d; MIN(x,y) %d", lo, (lo+sz-1), MIN(x,y));
+            printf("lo %d; sz %d; lo+sz-1 %d; x %d; y %d; MIN(x,y) %d\n\n", lo, sz, (lo+sz-1), x, y, MIN(x,y));
         }
     }
     free(aux);
