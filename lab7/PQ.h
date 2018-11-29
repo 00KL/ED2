@@ -1,6 +1,5 @@
 #ifndef PQ_H
 #define PQ_H
-#include "event.h"
 
 typedef struct pq PQ;
 

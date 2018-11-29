@@ -4,9 +4,6 @@
 #include <stdbool.h>
 #include "particle.h"
 
-//macros
-#define swapEvent(A, B) {Event* e; e = A; A = B; B = e;}
-
 typedef struct event Event;
 
 /*
